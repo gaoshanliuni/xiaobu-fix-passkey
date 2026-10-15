@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">小布 Passkey 修复</string>
+    <string name="module_description">仅修复小布扫一扫的 FIDO:/ 跳转，原样交给系统通行密钥处理器。开发者 gaoshanliuni</string>
+    <string name="developer">开发者 gaoshanliuni · 1.1.1</string>
+    <string name="project_address">项目地址：\n<a href="https://github.com/gaoshanliuni/xiaobu-fix-passkey">https://github.com/gaoshanliuni/xiaobu-fix-passkey</a></string>
+    <string name="loading_status">正在读取系统默认应用…</string>
+    <string name="choose_default">选择通行密钥默认应用</string>
+    <string name="clear_default">取消默认应用 · 每次询问</string>
+    <string name="application_settings">打开处理器的系统应用设置</string>
+    <string name="refresh_status">刷新默认状态</string>
+    <string name="current_default">当前默认：%1$s</string>
+    <string name="only_handler">唯一可用处理器：%1$s\n只有一个处理器时，系统无需显示选择器。</string>
+    <string name="ask_each_time">当前默认：未设置\n下次扫描时由系统询问使用哪个应用。</string>
+    <string name="no_handler">未找到可用的系统通行密钥处理器。</string>
+    <string name="defaults_help">默认应用管理需要 Root 权限。KernelSU / SukiSU 用户请先在管理器的“超级用户”中允许本模块；Magisk 用户可在授权弹窗中允许。仅更改 FIDO 关联，其他默认应用保持不变。扫码修复本身只需要 LSPosed。</string>
+    <string name="root_progress">正在更新 FIDO 默认关联…\n请确认本模块已获得 Root 授权。</string>
+    <string name="saved_success">已保存通行密钥默认应用。下次扫码生效，无需重启小布。</string>
+    <string name="cleared_success">已取消 FIDO 的“始终使用”。下次扫码会重新询问；若只有一个处理器，系统仍会直接打开。</string>
+    <string name="root_failed">操作未完成。KernelSU / SukiSU 用户请在管理器 → 超级用户中允许“小布 Passkey 修复”使用 Root，然后重新打开本模块。也可通过“系统应用设置”管理默认打开方式。</string>
+    <string name="owner_only">此一键管理功能只支持手机主用户；请在当前资料的系统应用设置中管理默认应用。</string>
+    <string name="usage_help">使用方式\n\n在 LSPosed 中启用本模块，作用域仅勾选“小布扫一扫”(com.coloros.ocrscanner)，然后强行停止并重新打开小布。\n\n扫描 FIDO:/ 二维码后，原文交给 Android 系统处理，不解析、不修改、不记录二维码内容。普通二维码、网址、文字和文档扫描沿用原流程。\n\n是否已激活请以 LSPosed 的 XiaobuPasskey 日志为准。</string>
+    <string-array name="xposed_scope">
+        <item>com.coloros.ocrscanner</item>
+    </string-array>
+</resources>

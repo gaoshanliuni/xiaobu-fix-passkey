@@ -1,0 +1,39 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'io.github.gaoshanliuni.xiaobupasskey'
+    compileSdk 35
+    defaultConfig {
+        applicationId 'io.github.gaoshanliuni.xiaobupasskey'
+        minSdk 27
+        targetSdk 35
+        versionCode 3
+        versionName '1.1.1'
+        testInstrumentationRunner 'io.github.gaoshanliuni.xiaobupasskey.ContractTestRunner'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    buildTypes {
+        release { minifyEnabled false }
+    }
+    def signingFile = rootProject.file('signing/release.properties')
+    if (signingFile.exists()) {
+        def secrets = new Properties()
+        signingFile.withInputStream { secrets.load(it) }
+        signingConfigs {
+            release {
+                storeFile rootProject.file('signing/release.jks')
+                storePassword secrets['storePassword']
+                keyAlias 'xiaobu-passkey'
+                keyPassword secrets['keyPassword']
+            }
+        }
+        buildTypes.release.signingConfig = signingConfigs.release
+        // The installed debug build can be replaced by release without losing LSPosed scope.
+        buildTypes.debug.signingConfig = signingConfigs.release
+    }
+}
+
+dependencies { compileOnly 'de.robv.android.xposed:api:82' }

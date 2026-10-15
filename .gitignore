@@ -1,0 +1,12 @@
+.gradle/
+**/build/
+local.properties
+analysis/
+downloads/
+*.jks
+*.keystore
+signing/
+tools/python/
+dist/
+tools/Repair-AdbInterface.ps1
+tools/Test-WinHttpProxy.ps1
